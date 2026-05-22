@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UA Creator Network</title>
+  <meta name="description" content="UA Creator Network helps TikTok LIVE creators grow with support, structure, community and no pressure culture." />
+
+  <style>
+    :root {
+      --bg: #070712;
+      --bg-soft: #101023;
+      --card: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.13);
+      --text: #f7f3ff;
+      --muted: #c9c2dc;
+      --pink: #ff4fd8;
+      --blue: #4bc3ff;
+      --purple: #8e5cff;
+      --green: #4dffbe;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 79, 216, 0.22), transparent 34%),
+        radial-gradient(circle at top right, rgba(75, 195, 255, 0.22), transparent 34%),
+        radial-gradient(circle at bottom, rgba(142, 92, 255, 0.18), transparent 38%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 7, 18, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      box-shadow: 0 0 35px rgba(255, 79, 216, 0.35);
+      font-weight: 900;
+      color: #080812;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      color: #080812;
+      font-weight: 800;
+    }
+
+    .hero {
+      padding: 92px 0 66px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--muted);
+      margin-bottom: 22px;
+      font-size: 0.92rem;
+    }
+
+    .spark {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #fff, var(--pink), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.16rem;
+      max-width: 660px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-weight: 800;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      color: #080812;
+      border: none;
+      box-shadow: 0 18px 50px rgba(75, 195, 255, 0.22);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.07);
+      color: white;
+    }
+
+    .mini-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(circle at 20% 20%, rgba(255,79,216,0.24), transparent 35%), radial-gradient(circle at 80% 20%, rgba(75,195,255,0.2), transparent 35%);
+      pointer-events: none;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-placeholder {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.16), transparent 58%),
+        linear-gradient(135deg, rgba(255,79,216,0.95), rgba(75,195,255,0.95));
+      box-shadow: 0 0 80px rgba(255, 79, 216, 0.3);
+      color: #070712;
+      font-size: 3.7rem;
+      font-weight: 950;
+      letter-spacing: -0.12em;
+      padding-right: 8px;
+    }
+
+    .status-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .status-item {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .status-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .status-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 9px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .feature-panel {
+      padding: 34px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255, 79, 216, 0.14), rgba(75, 195, 255, 0.1));
+      border: 1px solid var(--card-border);
+    }
+
+    .feature-panel h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 16px;
+    }
+
+    .feature-panel p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 15px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step::before {
+      content: counter(step);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      color: #080812;
+      font-weight: 900;
+    }
+
+    .step p {
+      color: var(--muted);
+    }
+
+    .cta-section {
+      padding: 86px 0;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 54px 28px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at top left, rgba(255,79,216,0.28), transparent 34%),
+        radial-gradient(circle at top right, rgba(75,195,255,0.24), transparent 34%),
+        rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      margin-bottom: 18px;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 690px;
+      margin: 0 auto 28px;
+      font-size: 1.08rem;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    details p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    @media (max-width: 880px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="page-wrap nav">
+      <a class="brand" href="#top" aria-label="UA Creator Network home">
+        <span class="brand-mark">UA</span>
+        <span>UA Creator Network</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#join">Join</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="nav-cta" href="#apply">Apply Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero page-wrap">
+      <div>
+        <div class="eyebrow"><span class="spark"></span> TikTok LIVE creator support, without the pressure.</div>
+        <h1><span class="gradient-text">Show Up.</span><br />Show Love.</h1>
+        <p>
+          UA Creator Network is built for creators who want to grow with community, structure and genuine support. No forced battles. No diamond pressure. Just a network that helps you build confidence, improve your LIVE setup and find your people.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#apply">Apply to Join UA</a>
+          <a class="btn btn-secondary" href="#support">See Creator Support</a>
+        </div>
+        <div class="mini-note">18+ creators · UK focused · Australia/New Zealand welcome · Mental health breaks respected</div>
+      </div>
+
+      <aside class="hero-card" aria-label="UA highlights">
+        <div class="logo-placeholder">UA</div>
+        <div class="status-list">
+          <div class="status-item">
+            <strong>Creator-first network</strong>
+            <span>Built around people, not pressure.</span>
+          </div>
+          <div class="status-item">
+            <strong>Growth with guidance</strong>
+            <span>Support with LIVE basics, confidence, setup and strategy.</span>
+          </div>
+          <div class="status-item">
+            <strong>Community culture</strong>
+            <span>Show up, show love, and help each other win.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="page-wrap">
+      <div class="section-heading">
+        <h2>What is <span class="gradient-text">UA?</span></h2>
+        <p>
+          UA Creator Network is a supportive creator community for TikTok LIVE creators who want to grow in a healthier, more organised way.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">💬</div>
+          <h3>Real community</h3>
+          <p>We believe creators do better when they feel seen, supported and included. UA is about showing up for each other, not leaving people to figure it out alone.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Creator growth</h3>
+          <p>From LIVE hooks to retention, profile checks, titles, confidence and engagement — we help creators build the habits that actually move things forward.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🛡️</div>
+          <h3>No-pressure culture</h3>
+          <p>We do not believe in forcing creators into battles, hours or diamond stress. Growth matters, but so does the human being behind the screen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="support" class="page-wrap">
+      <div class="section-heading">
+        <h2>How we support creators</h2>
+        <p>UA gives creators structure, advice and people they can turn to when they need help.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">🎥</div>
+          <h3>LIVE support</h3>
+          <ul>
+            <li>LIVE titles and hooks</li>
+            <li>Engagement ideas</li>
+            <li>Confidence building</li>
+            <li>Co-host and collab support</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🧠</div>
+          <h3>Creator wellbeing</h3>
+          <ul>
+            <li>Mental health breaks respected</li>
+            <li>No shame for needing time out</li>
+            <li>Supportive ticket system</li>
+            <li>Community check-ins</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🖥️</div>
+          <h3>Setup guidance</h3>
+          <ul>
+            <li>TikTok LIVE Studio help</li>
+            <li>OBS and overlays</li>
+            <li>TikFinity basics</li>
+            <li>PC and capture card advice</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="join" class="page-wrap">
+      <div class="split">
+        <div class="feature-panel">
+          <h2>Who should join UA?</h2>
+          <p>
+            UA is for creators who want to grow, learn, connect and be part of a community that celebrates effort as much as results.
+          </p>
+          <a class="btn btn-primary" href="#apply">Start your application</a>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div>
+              <h3>Apply</h3>
+              <p>Tell us about you, your content, your LIVE goals and what kind of support you need.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div>
+              <h3>Meet the team</h3>
+              <p>We help you get settled, understand the server, and know where to go for help.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div>
+              <h3>Start growing</h3>
+              <p>Join community spaces, get advice, take part in opportunities and build your confidence on LIVE.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" class="cta-section page-wrap">
+      <div class="cta-box">
+        <h2>Ready to join the <span class="gradient-text">new era?</span></h2>
+        <p>
+          Whether you are brand new to TikTok LIVE or ready to take your content more seriously, UA is here to help you show up, show love and grow with support.
+        </p>
+        <!-- Replace the # below with your Google Form, Tally form, Discord invite or application link. -->
+        <a class="btn btn-primary" href="#">Apply to UA Creator Network</a>
+      </div>
+    </section>
+
+    <section id="faq" class="page-wrap">
+      <div class="section-heading">
+        <h2>Questions creators ask</h2>
+        <p>Here are the basics before applying.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Do I have to battle?</summary>
+          <p>No. Battles are optional. UA supports different styles of creators, including gaming, chatting, co-hosting, events and community-based LIVE content.</p>
+        </details>
+
+        <details>
+          <summary>Are there forced diamond targets?</summary>
+          <p>No. We encourage growth and consistency, but we do not believe in pressuring creators in a way that damages confidence or wellbeing.</p>
+        </details>
+
+        <details>
+          <summary>Can I take a mental health break?</summary>
+          <p>Yes. Communication matters, but creators are human. Breaks are respected and support is available through the correct channels.</p>
+        </details>
+
+        <details>
+          <summary>What age do I need to be?</summary>
+          <p>UA is for creators aged 18+.</p>
+        </details>
+
+        <details>
+          <summary>Is UA only for UK creators?</summary>
+          <p>UA is UK focused, but creators from Australia and New Zealand are welcome where support and onboarding are available.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-wrap footer-inner">
+      <p>© 2026 UA Creator Network. Show Up. Show Love.</p>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#apply">Apply</a>
+        <a href="#support">Support</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
