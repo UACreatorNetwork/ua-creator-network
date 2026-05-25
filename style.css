@@ -720,4 +720,79 @@ footer {
 .direct-join-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 30px rgba(255, 79, 216, 0.75);
+}.join-form-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 30px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.join-form-column,
+.join-info-column {
+  width: 100%;
+}
+
+.join-form-column iframe {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.join-info-column {
+  position: sticky;
+  top: 30px;
+}
+
+.direct-join-box {
+  width: 100%;
+  text-align: center;
+  padding: 35px 25px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #160020, #2b0050, #5b1aff);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(180, 90, 255, 0.35);
+  color: #ffffff;
+}
+
+.direct-join-box h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.direct-join-box p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #f1e8ff;
+}
+
+.direct-join-button {
+  display: inline-block;
+  padding: 15px 34px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5865f2, #9b5cff);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.5);
+  transition: all 0.25s ease;
+}
+
+.direct-join-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(88, 101, 242, 0.8);
+}
+
+@media (max-width: 900px) {
+  .join-form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .join-info-column {
+    position: static;
+  }
 }
