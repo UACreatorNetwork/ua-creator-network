@@ -720,7 +720,7 @@ footer {
 .direct-join-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 30px rgba(255, 79, 216, 0.75);
-}.join-form-layout {
+.join-form-layout {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 30px;
@@ -796,3 +796,4 @@ footer {
     position: static;
   }
 }
+
