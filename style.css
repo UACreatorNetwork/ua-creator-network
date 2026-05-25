@@ -294,8 +294,13 @@ h1 {
 }
 
 @keyframes floatLogo {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+
+  50% { 
+    transform: translateY(-10px); 
+  }
 }
 
 section {
@@ -595,6 +600,107 @@ footer {
   color: #d7d7e2;
 }
 
+/* Join page form + TikTok/Discord box side-by-side */
+
+.join-form-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 30px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.join-form-column,
+.join-info-column {
+  width: 100%;
+  min-width: 0;
+}
+
+.join-form-column .panel {
+  height: 100%;
+}
+
+.join-form-column iframe {
+  width: 100%;
+  min-height: 850px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.join-info-column {
+  position: sticky;
+  top: 100px;
+}
+
+.direct-join-box {
+  width: 100%;
+  text-align: center;
+  padding: 35px 25px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #160020, #2b0050, #5b1aff);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(180, 90, 255, 0.35);
+  color: #ffffff;
+}
+
+.direct-join-box h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.direct-join-box h3 {
+  font-size: 1.3rem;
+  margin: 24px 0 12px;
+  color: #ffffff;
+}
+
+.direct-join-box p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #f1e8ff;
+}
+
+.direct-join-button,
+.discord-join-button {
+  display: inline-block;
+  width: 100%;
+  max-width: 260px;
+  padding: 15px 24px;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  transition: all 0.25s ease;
+}
+
+.direct-join-button {
+  background: linear-gradient(135deg, #ff23c8, #8b4cff, #1687ff);
+  box-shadow: 0 0 20px rgba(255, 35, 200, 0.45);
+}
+
+.discord-join-button {
+  background: linear-gradient(135deg, #5865f2, #9b5cff);
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.5);
+}
+
+.direct-join-button:hover,
+.discord-join-button:hover {
+  transform: translateY(-3px);
+}
+
+.join-divider {
+  width: 100%;
+  height: 1px;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive layout */
+
 @media (max-width: 1000px) {
   .nav-links {
     display: none;
@@ -637,6 +743,18 @@ footer {
     margin: 0 auto;
   }
 }
+
+@media (max-width: 900px) {
+  .join-form-layout {
+    grid-template-columns: 1fr;
+    margin: 30px auto;
+  }
+
+  .join-info-column {
+    position: static;
+  }
+}
+
 @media (max-width: 620px) {
   .brand-text {
     display: none;
@@ -671,85 +789,12 @@ footer {
   .panel {
     padding: 24px;
   }
-}
 
-/* Join page form + Discord box layout */
-
-.join-form-layout {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 30px;
-  align-items: start;
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
-
-.join-form-column,
-.join-info-column {
-  width: 100%;
-}
-
-.join-form-column iframe {
-  width: 100%;
-  min-height: 850px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.join-info-column {
-  position: sticky;
-  top: 100px;
-}
-
-.direct-join-box {
-  width: 100%;
-  text-align: center;
-  padding: 35px 25px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #160020, #2b0050, #5b1aff);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 30px rgba(180, 90, 255, 0.35);
-  color: #ffffff;
-}
-
-.direct-join-box h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #ffffff;
-}
-
-.direct-join-box p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  color: #f1e8ff;
-}
-
-.direct-join-button {
-  display: inline-block;
-  padding: 15px 34px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #5865f2, #9b5cff);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 800;
-  box-shadow: 0 0 20px rgba(88, 101, 242, 0.5);
-  transition: all 0.25s ease;
-}
-
-.direct-join-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(88, 101, 242, 0.8);
-}
-
-@media (max-width: 900px) {
-  .join-form-layout {
-    grid-template-columns: 1fr;
-    margin: 30px auto;
+  .direct-join-box {
+    padding: 28px 20px;
   }
 
-  .join-info-column {
-    position: static;
+  .direct-join-box h2 {
+    font-size: 1.7rem;
   }
 }
