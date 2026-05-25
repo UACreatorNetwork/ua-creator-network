@@ -672,55 +672,7 @@ footer {
   .panel {
     padding: 24px;
   }
-}
-.direct-join-section {
-  padding: 50px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.direct-join-box {
-  max-width: 850px;
-  width: 100%;
-  text-align: center;
-  padding: 40px 25px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #160020, #2b0050, #5b1aff);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 30px rgba(180, 90, 255, 0.35);
-  color: #ffffff;
-}
-
-.direct-join-box h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.direct-join-box p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto 28px;
-  color: #f1e8ff;
-}
-
-.direct-join-button {
-  display: inline-block;
-  padding: 15px 34px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ff4fd8, #8b5cff);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  box-shadow: 0 0 20px rgba(255, 79, 216, 0.45);
-  transition: all 0.25s ease;
-}
-
-.direct-join-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(255, 79, 216, 0.75);
-.join-form-layout {
+}.join-form-layout {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 30px;
@@ -796,4 +748,3 @@ footer {
     position: static;
   }
 }
-
