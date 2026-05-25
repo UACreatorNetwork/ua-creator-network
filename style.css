@@ -637,7 +637,6 @@ footer {
     margin: 0 auto;
   }
 }
-
 @media (max-width: 620px) {
   .brand-text {
     display: none;
@@ -672,7 +671,11 @@ footer {
   .panel {
     padding: 24px;
   }
-}.join-form-layout {
+}
+
+/* Join page form + Discord box layout */
+
+.join-form-layout {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 30px;
@@ -689,13 +692,14 @@ footer {
 
 .join-form-column iframe {
   width: 100%;
+  min-height: 850px;
   border-radius: 20px;
   overflow: hidden;
 }
 
 .join-info-column {
   position: sticky;
-  top: 30px;
+  top: 100px;
 }
 
 .direct-join-box {
@@ -742,6 +746,7 @@ footer {
 @media (max-width: 900px) {
   .join-form-layout {
     grid-template-columns: 1fr;
+    margin: 30px auto;
   }
 
   .join-info-column {
